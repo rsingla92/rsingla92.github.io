@@ -1,0 +1,121 @@
+/*!
+ * Start Bootstrap - 2 Col Portfolio HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+
+body {
+    background-color: ivory;
+    color: #333;
+    font-family: 'Roboto', sans-serif
+    margin: 0 auto !important;
+    /*padding-top: 5%;*/
+}
+
+.row {
+    margin-left: none !important;
+    margin-right: none !important;
+}
+
+.main-content {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.main-content-inner {
+    padding-top: 5%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.description {
+    padding-bottom: 1px;
+    font-size: 30px;
+    line-height: 50px;
+    margin: 25px 0px 25px;
+}
+
+@media (max-width: 991px) {
+    .description {
+	font-size: 36px;
+	line-height: 48px;
+    }
+
+    .info {
+	font-size: 1.2px;
+	line-height: 1.8px;
+    }
+
+    .right-column {
+	padding-top: 50px;
+    }
+
+    .main-content {
+	padding-left: 16px;
+	padding-right: 16px;
+    }
+}
+
+.info {
+    font-size: 1.7rem;
+    line-height: 3rem;
+    margin-top: 0em;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 992px) {
+    .groups-outer {
+	width: 340px;
+    }
+}
+
+.groups-middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.center-on-small {
+    text-align: center !important;
+    margin:auto !important;
+
+@media (max-width: 991px) {
+    .center-on-small {
+	text-align: center;
+	margin:auto;
+    }
+
+    .main-content {
+	padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+}
+
+@media (min-width: 992px) {
+    .main-content {
+	padding-top: 115px;
+    }
+
+    .right-column {
+	width: 58%;
+    }
+}
+
+.inner-content {
+    max-width:980px;
+}
+
+@media (max-width: 991px) {
+    .inner-content {
+	padding: 0px;
+	width: 100%;
+    }
+
+    .left-column {
+	padding: 0px;
+    text-align: right;
+    }
+}
