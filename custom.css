@@ -1,7 +1,7 @@
 :root {
     --primary-color: #2a2f45;  /* Dark blue for a professional feel */
-    --secondary-color: #ffffff; /* White for text and contrasts */
-    --text-color: #ffffff;      /* White text for readability against the primary color */
+    --secondary-color: #e0e0e0; /* Light grey for high contrast on dark blue */
+    --text-color: #ffffff;      /* White text for general readability */
     --background-color: #f0f0f0; /* Light grey for the main background */
     --font-primary: 'Segoe UI', sans-serif; /* Modern, sans-serif font */
     --font-secondary: 'Georgia', serif; /* Elegant, readable serif font for headers */
@@ -21,7 +21,7 @@ header {
     padding: 20px 0;
     text-align: center;
     font-family: var(--font-secondary);
-    font-size: 36px; /* Larger font size for better visibility */
+    font-size: 48px; /* Significantly larger for the main header */
 }
 
 .profile-image {
@@ -49,7 +49,7 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        font-size: 28px; /* Slightly smaller on mobile for balance */
+        font-size: 32px; /* Slightly smaller on mobile for balance */
     }
     .profile-image {
         width: 90%; /* Full width on smaller screens */
