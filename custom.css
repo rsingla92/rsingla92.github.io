@@ -53,15 +53,20 @@ footer {
     padding-bottom: 10px;  /* Spacing below the header */
 }
 
-.expertise ul {
+.expertise ul.expertise-list {
+    columns: 2;  /* Creating two columns */
+    -webkit-columns: 2;  /* Prefix for Safari and older Chrome browsers */
+    -moz-columns: 2;  /* Prefix for older Firefox browsers */
     list-style-type: none;  /* No bullets for a cleaner look */
     padding: 0;
     line-height: 1.8;  /* Slightly larger line height for readability */
+    margin-bottom: 20px; /* Space below the list */
 }
 
 .expertise li {
     padding: 5px 0;  /* Padding between items */
     border-bottom: 1px solid var(--secondary-color);  /* Light line between items for clarity */
+    break-inside: avoid-column;  /* Prevents items from breaking across columns */
 }
 
 @media (max-width: 768px) {
@@ -76,5 +81,10 @@ footer {
     }
     .expertise h2 {
         font-size: 22px;  /* Smaller on mobile devices */
+    }
+    .expertise ul.expertise-list {
+        columns: 1;  /* One column on smaller screens */
+        -webkit-columns: 1;
+        -moz-columns: 1;
     }
 }
