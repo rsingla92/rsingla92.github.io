@@ -1,10 +1,10 @@
 :root {
-    --primary-color: #2a2f45;  /* Modern deep blue for a professional feel */
-    --secondary-color: #f4f4f9; /* Soft light grey for background */
-    --text-color: #ffffff;      /* White text for readability */
-    --background-color: #f0f0f0; /* Light grey for main background */
-    --font-primary: 'Segoe UI', sans-serif; /* Clean, modern sans-serif font */
-    --font-secondary: 'Merriweather', serif; /* Elegant, readable serif font */
+    --primary-color: #2a2f45;  /* Dark blue for a professional feel */
+    --secondary-color: #ffffff; /* White for text and contrasts */
+    --text-color: #ffffff;      /* White text for readability against the primary color */
+    --background-color: #f0f0f0; /* Light grey for the main background */
+    --font-primary: 'Segoe UI', sans-serif; /* Modern, sans-serif font */
+    --font-secondary: 'Georgia', serif; /* Elegant, readable serif font for headers */
 }
 
 body {
@@ -17,17 +17,17 @@ body {
 
 header {
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: var(--secondary-color);
     padding: 20px 0;
     text-align: center;
     font-family: var(--font-secondary);
-    font-size: 2.5em; /* Increased font size */
+    font-size: 36px; /* Larger font size for better visibility */
 }
 
 .profile-image {
-    width: 300px;  /* Double the original size */
+    width: 300px;  /* Appropriately large for visibility */
     height: auto;  /* Maintain aspect ratio */
-    border-radius: 15px;  /* Rounded rectangle */
+    border-radius: 15px;  /* Rounded rectangle for a modern look */
     display: block;
     margin: 20px auto;
 }
@@ -39,23 +39,22 @@ header {
 
 footer {
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: var(--secondary-color);
     text-align: center;
     padding: 10px 0;
     width: 100%;
-    position: relative; /* Adjusted from fixed to avoid blocking content on scroll */
-    clear: both; /* Ensures footer stays below all content */
+    position: relative; /* Avoids blocking content */
+    clear: both; /* Keeps footer at the bottom */
 }
 
 @media (max-width: 768px) {
+    header {
+        font-size: 28px; /* Slightly smaller on mobile for balance */
+    }
     .profile-image {
-        width: 90%; /* Smaller width on smaller screens */
+        width: 90%; /* Full width on smaller screens */
     }
-    header, footer {
-        text-align: center;
-        padding: 10px 0;
-    }
-    .bio {
+    .bio, header, footer {
         padding: 10px;
     }
 }
