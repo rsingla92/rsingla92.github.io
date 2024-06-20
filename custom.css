@@ -3,7 +3,8 @@
     --secondary-color: #f4f4f9; /* Soft light grey for background */
     --text-color: #ffffff;      /* White text for readability */
     --background-color: #f0f0f0; /* Light grey for main background */
-    --font-primary: 'Segoe UI', sans-serif; /* Clean, modern font */
+    --font-primary: 'Segoe UI', sans-serif; /* Clean, modern sans-serif font */
+    --font-secondary: 'Merriweather', serif; /* Elegant, readable serif font */
 }
 
 body {
@@ -19,6 +20,8 @@ header {
     color: var(--text-color);
     padding: 20px 0;
     text-align: center;
+    font-family: var(--font-secondary);
+    font-size: 2.5em; /* Increased font size */
 }
 
 .profile-image {
