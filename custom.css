@@ -1,121 +1,64 @@
-/*!
- * Start Bootstrap - 2 Col Portfolio HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
-
+:root {
+    --primary-color: #0056b3;   /* Modern blue */
+    --secondary-color: #52b788; /* Soothing green for highlights */
+    --text-color: #333333;      /* Dark grey for readability */
+    --background-color: #f4f4f9; /* Light greyish blue background for contrast */
+    --font-primary: 'Open Sans', sans-serif; /* Modern, clean font */
+    --font-secondary: 'Merriweather', serif; /* Elegant, readable serif font for contrast */
+}
 
 body {
-    background-color: ivory;
-    color: #333;
-    font-family: 'Roboto', sans-serif
-    margin: 0 auto !important;
-    /*padding-top: 5%;*/
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
 }
 
-.row {
-    margin-left: none !important;
-    margin-right: none !important;
+header {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 10px 0;
+    text-align: center;
 }
 
-.main-content {
-    padding-left: 10%;
-    padding-right: 10%;
+.profile-image {
+    width: 150px; /* Smaller image size for modern design */
+    height: 150px;
+    border-radius: 50%;
+    display: block;
+    margin: 20px auto;
 }
 
-.main-content-inner {
-    padding-top: 5%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+.bio {
+    padding: 20px;
+    line-height: 1.6;
 }
 
-.description {
-    padding-bottom: 1px;
-    font-size: 30px;
-    line-height: 50px;
-    margin: 25px 0px 25px;
-}
-
-@media (max-width: 991px) {
-    .description {
-	font-size: 36px;
-	line-height: 48px;
-    }
-
-    .info {
-	font-size: 1.2px;
-	line-height: 1.8px;
-    }
-
-    .right-column {
-	padding-top: 50px;
-    }
-
-    .main-content {
-	padding-left: 16px;
-	padding-right: 16px;
-    }
-}
-
-.info {
-    font-size: 1.7rem;
-    line-height: 3rem;
-    margin-top: 0em;
-    margin-bottom: 1.5rem;
-}
-
-@media (min-width: 992px) {
-    .groups-outer {
-	width: 340px;
-    }
-}
-
-.groups-middle {
-    display: table-cell;
-    vertical-align: middle;
+.bio h1, .bio h2 {
+    color: var(--secondary-color);
 }
 
 footer {
-    margin: 50px 0;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
-.center-on-small {
-    text-align: center !important;
-    margin:auto !important;
-
-@media (max-width: 991px) {
-    .center-on-small {
-	text-align: center;
-	margin:auto;
-    }
-
-    .main-content {
-	padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    }
+ul {
+    padding-left: 20px;
 }
 
-@media (min-width: 992px) {
-    .main-content {
-	padding-top: 115px;
+@media (max-width: 768px) {
+    .profile {
+        text-align: center;
     }
 
-    .right-column {
-	width: 58%;
-    }
-}
-
-.inner-content {
-    max-width:980px;
-}
-
-@media (max-width: 991px) {
-    .inner-content {
-	padding: 0px;
-	width: 100%;
-    }
-
-    .left-column {
-	padding: 0px;
-    text-align: right;
+    header, footer {
+        text-align: center;
     }
 }
