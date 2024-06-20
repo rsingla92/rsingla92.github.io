@@ -47,6 +47,23 @@ footer {
     clear: both; /* Keeps footer at the bottom */
 }
 
+.expertise h2 {
+    font-size: 26px;
+    color: var(--primary-color);  /* Dark blue for a professional tone */
+    padding-bottom: 10px;  /* Spacing below the header */
+}
+
+.expertise ul {
+    list-style-type: none;  /* No bullets for a cleaner look */
+    padding: 0;
+    line-height: 1.8;  /* Slightly larger line height for readability */
+}
+
+.expertise li {
+    padding: 5px 0;  /* Padding between items */
+    border-bottom: 1px solid var(--secondary-color);  /* Light line between items for clarity */
+}
+
 @media (max-width: 768px) {
     header {
         font-size: 32px; /* Slightly smaller on mobile for balance */
@@ -56,5 +73,8 @@ footer {
     }
     .bio, header, footer {
         padding: 10px;
+    }
+    .expertise h2 {
+        font-size: 22px;  /* Smaller on mobile devices */
     }
 }
