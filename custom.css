@@ -21,7 +21,7 @@ header {
     padding: 20px 0;
     text-align: center;
     font-family: var(--font-secondary);
-    font-size: 60px; /* Increased font size for the main title */
+    font-size: 48px; /* Significantly larger for the main header */
 }
 
 .profile-image {
@@ -32,24 +32,48 @@ header {
     margin: 20px auto;
 }
 
-.bio, .expertise, footer {
+.bio {
     padding: 20px;
+    line-height: 1.6;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative; /* Avoids blocking content */
+    clear: both; /* Keeps footer at the bottom */
+}
+
+.expertise h2 {
+    font-size: 26px;
+    color: var(--primary-color);  /* Dark blue for a professional tone */
+    padding-bottom: 10px;  /* Spacing below the header */
 }
 
 .expertise ul {
-    columns: 2;
-    -webkit-columns: 2;
-    -moz-columns: 2;
-    list-style-type: none;
+    list-style-type: none;  /* No bullets for a cleaner look */
     padding: 0;
+    line-height: 1.8;  /* Slightly larger line height for readability */
+}
+
+.expertise li {
+    padding: 5px 0;  /* Padding between items */
 }
 
 @media (max-width: 768px) {
     header {
-        font-size: 40px; /* Adjust for smaller screens */
+        font-size: 32px; /* Slightly smaller on mobile for balance */
     }
     .profile-image {
-        width: 80%; /* Adjust for smaller screens */
+        width: 90%; /* Full width on smaller screens */
+    }
+    .bio, header, footer {
+        padding: 10px;
+    }
+    .expertise h2 {
+        font-size: 22px;  /* Smaller on mobile devices */
     }
 }
