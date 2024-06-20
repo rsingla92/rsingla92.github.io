@@ -21,7 +21,7 @@ header {
     padding: 20px 0;
     text-align: center;
     font-family: var(--font-secondary);
-    font-size: 48px; /* Significantly larger for the main header */
+    font-size: 60px; /* Increased font size for the main title */
 }
 
 .profile-image {
@@ -32,59 +32,24 @@ header {
     margin: 20px auto;
 }
 
-.bio {
+.bio, .expertise, footer {
     padding: 20px;
-    line-height: 1.6;
-}
-
-footer {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
     text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    position: relative; /* Avoids blocking content */
-    clear: both; /* Keeps footer at the bottom */
 }
 
-.expertise h2 {
-    font-size: 26px;
-    color: var(--primary-color);  /* Dark blue for a professional tone */
-    padding-bottom: 10px;  /* Spacing below the header */
-}
-
-.expertise ul.expertise-list {
-    columns: 2;  /* Creating two columns */
-    -webkit-columns: 2;  /* Prefix for Safari and older Chrome browsers */
-    -moz-columns: 2;  /* Prefix for older Firefox browsers */
-    list-style-type: none;  /* No bullets for a cleaner look */
+.expertise ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    list-style-type: none;
     padding: 0;
-    line-height: 1.8;  /* Slightly larger line height for readability */
-    margin-bottom: 20px; /* Space below the list */
-}
-
-.expertise li {
-    padding: 5px 0;  /* Padding between items */
-    border-bottom: 1px solid var(--secondary-color);  /* Light line between items for clarity */
-    break-inside: avoid-column;  /* Prevents items from breaking across columns */
 }
 
 @media (max-width: 768px) {
     header {
-        font-size: 32px; /* Slightly smaller on mobile for balance */
+        font-size: 40px; /* Adjust for smaller screens */
     }
     .profile-image {
-        width: 90%; /* Full width on smaller screens */
-    }
-    .bio, header, footer {
-        padding: 10px;
-    }
-    .expertise h2 {
-        font-size: 22px;  /* Smaller on mobile devices */
-    }
-    .expertise ul.expertise-list {
-        columns: 1;  /* One column on smaller screens */
-        -webkit-columns: 1;
-        -moz-columns: 1;
+        width: 80%; /* Adjust for smaller screens */
     }
 }
