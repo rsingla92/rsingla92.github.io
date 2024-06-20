@@ -1,15 +1,14 @@
 :root {
-    --primary-color: #0056b3;   /* Modern blue */
-    --secondary-color: #52b788; /* Soothing green for highlights */
-    --text-color: #333333;      /* Dark grey for readability */
-    --background-color: #f4f4f9; /* Light greyish blue background for contrast */
-    --font-primary: 'Open Sans', sans-serif; /* Modern, clean font */
-    --font-secondary: 'Merriweather', serif; /* Elegant, readable serif font for contrast */
+    --primary-color: #2a2f45;  /* Modern deep blue for a professional feel */
+    --secondary-color: #f4f4f9; /* Soft light grey for background */
+    --text-color: #ffffff;      /* White text for readability */
+    --background-color: #f0f0f0; /* Light grey for main background */
+    --font-primary: 'Segoe UI', sans-serif; /* Clean, modern font */
 }
 
 body {
     background-color: var(--background-color);
-    color: var(--text-color);
+    color: var(--primary-color);
     font-family: var(--font-primary);
     margin: 0;
     padding: 0;
@@ -17,15 +16,15 @@ body {
 
 header {
     background-color: var(--primary-color);
-    color: var(--background-color);
-    padding: 10px 0;
+    color: var(--text-color);
+    padding: 20px 0;
     text-align: center;
 }
 
 .profile-image {
-    width: 150px; /* Smaller image size for modern design */
-    height: 150px;
-    border-radius: 50%;
+    width: 300px;  /* Double the original size */
+    height: auto;  /* Maintain aspect ratio */
+    border-radius: 15px;  /* Rounded rectangle */
     display: block;
     margin: 20px auto;
 }
@@ -35,30 +34,25 @@ header {
     line-height: 1.6;
 }
 
-.bio h1, .bio h2 {
-    color: var(--secondary-color);
-}
-
 footer {
     background-color: var(--primary-color);
-    color: var(--background-color);
+    color: var(--text-color);
     text-align: center;
     padding: 10px 0;
-    position: fixed;
     width: 100%;
-    bottom: 0;
-}
-
-ul {
-    padding-left: 20px;
+    position: relative; /* Adjusted from fixed to avoid blocking content on scroll */
+    clear: both; /* Ensures footer stays below all content */
 }
 
 @media (max-width: 768px) {
-    .profile {
-        text-align: center;
+    .profile-image {
+        width: 90%; /* Smaller width on smaller screens */
     }
-
     header, footer {
         text-align: center;
+        padding: 10px 0;
+    }
+    .bio {
+        padding: 10px;
     }
 }
