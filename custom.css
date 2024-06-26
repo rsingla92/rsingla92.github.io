@@ -21,7 +21,7 @@ header {
     padding: 20px 0;
     text-align: center;
     font-family: var(--font-secondary);
-    font-size: 48px; /* Significantly larger for the main header */
+    font-size: 24px; /* Significantly larger for the main header */
 }
 
 .profile-image {
@@ -48,7 +48,7 @@ footer {
 }
 
 .expertise h2 {
-    font-size: 26px;
+    font-size: 16px;
     color: var(--primary-color);  /* Dark blue for a professional tone */
     padding-bottom: 10px;  /* Spacing below the header */
 }
