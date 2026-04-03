@@ -55,7 +55,7 @@
         @media (prefers-color-scheme: dark) {
             :root:not([data-theme="light"]) {
                 --bg: #0F0F1A;
-                --surface: #1A1A2E;
+                --surface: #1E1E34;
                 --text: #E5E7EB;
                 --text-muted: #9CA3AF;
                 --accent: #7DB4FC;
@@ -67,7 +67,7 @@
         }
         [data-theme="dark"] {
             --bg: #0F0F1A;
-            --surface: #1A1A2E;
+            --surface: #1E1E34;
             --text: #E5E7EB;
             --text-muted: #9CA3AF;
             --accent: #7DB4FC;
@@ -207,9 +207,11 @@
             background: none;
             border: none;
             color: var(--header-text);
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             cursor: pointer;
-            padding: var(--space-xs);
+            padding: var(--space-sm);
+            min-width: 44px;
+            min-height: 44px;
         }
 
         /* ===== MAIN LAYOUT ===== */
@@ -226,12 +228,15 @@
             margin-bottom: var(--space-lg);
             background: var(--border);
         }
-        .profile-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+        .profile-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block; }
+        [data-theme="dark"] .profile-photo { box-shadow: 0 2px 16px rgba(0,0,0,0.4); }
+        @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .profile-photo { box-shadow: 0 2px 16px rgba(0,0,0,0.4); } }
         .sidebar-name { font-family: var(--font-display); font-size: 1.7rem; line-height: 1.2; margin-bottom: var(--space-sm); }
         .sidebar-role { color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; margin-bottom: var(--space-md); }
         .sidebar-links { list-style: none; font-size: 0.9rem; }
         .sidebar-links li { margin-bottom: var(--space-sm); }
         .sidebar-links a { display: inline-flex; align-items: center; gap: var(--space-xs); }
+        .sidebar-email { color: var(--text-muted); font-size: 0.85rem; }
 
         /* ===== CONTENT ===== */
         .content section { margin-bottom: var(--space-2xl); scroll-margin-top: 88px; }
@@ -242,12 +247,21 @@
         h3 { font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; line-height: 1.4; margin-top: var(--space-lg); margin-bottom: var(--space-sm); }
 
         .content p { margin-bottom: var(--space-md); }
+        .content p a { text-decoration: none; }
+        .content p a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
         /* ===== PUBLICATION LIST ===== */
         .pub-list { list-style: none; }
         .pub-list li { padding: var(--space-md) 0; border-bottom: 1px solid var(--border); font-size: 0.92rem; line-height: 1.65; }
         .pub-list li:last-child { border-bottom: none; }
         .pub-list a { text-decoration-color: rgba(37, 99, 235, 0.25); }
+
+        /* Collapsible sections */
+        .pub-section { margin-bottom: var(--space-sm); }
+        .pub-toggle { cursor: pointer; user-select: none; display: flex; align-items: center; gap: var(--space-sm); }
+        .pub-toggle::before { content: '▾'; font-size: 0.75rem; color: var(--text-muted); transition: transform var(--transition); display: inline-block; width: 1em; }
+        .pub-section.collapsed .pub-toggle::before { transform: rotate(-90deg); }
+        .pub-section.collapsed .pub-list { display: none; }
         .pub-author { font-weight: 700; }
         .pub-venue { color: var(--text-muted); font-style: italic; }
         .pub-year { font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); margin-right: var(--space-sm); }
@@ -295,8 +309,10 @@
         .highlights .highlight-item:nth-child(-n+3) { grid-column: span 2; }
         .highlights .highlight-item:nth-child(4) { grid-column: 2 / span 2; }
         .highlights .highlight-item:nth-child(5) { grid-column: 4 / span 2; }
-        .highlight-item { text-align: center; }
-        .highlight-num { font-family: var(--font-display); font-size: 1.8rem; line-height: 1.2; color: var(--accent); }
+        .highlight-item { text-align: center; transition: transform var(--transition); }
+        .highlight-item:hover { transform: translateY(-2px); }
+        .highlight-num { font-family: var(--font-display); font-size: 1.8rem; line-height: 1.2; color: var(--accent); transition: color var(--transition); }
+        .highlight-item:hover .highlight-num { color: var(--accent-hover); }
         .highlight-label { font-size: 0.82rem; color: var(--text-muted); line-height: 1.3; }
 
         /* ===== PRINT ===== */
@@ -326,7 +342,7 @@
         .press-list { list-style: none; }
         .press-list li { padding: var(--space-sm) 0; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
         .press-list li:last-child { border-bottom: none; }
-        .press-source { font-weight: 600; font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; }
+        .press-source { font-weight: 600; font-size: 0.88rem; color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -352,7 +368,7 @@
         <div class="profile-grid">
             <aside class="sidebar" aria-label="Profile">
                 <div class="profile-photo">
-                    <img src="profile.jpg" alt="Rohit Singla" width="260" height="347" loading="eager">
+                    <img src="profile.jpg" alt="Rohit Singla" width="260" height="347" loading="eager" decoding="async">
                 </div>
                 <div class="sidebar-name">Rohit Singla, MD PhD</div>
                 <div class="sidebar-role">
@@ -361,7 +377,7 @@
                     Postdoctoral Fellow, UBC EECE
                 </div>
                 <ul class="sidebar-links">
-                    <li>rohit [at] rsingla [dot] ca</li>
+                    <li class="sidebar-email">rohit [at] rsingla [dot] ca</li>
                     <li><a href="https://scholar.google.com/citations?user=YslDOD8AAAAJ" target="_blank" rel="me noopener">Google Scholar</a></li>
                     <li><a href="https://www.linkedin.com/in/rsingla92/" target="_blank" rel="me noopener">LinkedIn</a></li>
                     <li><a href="https://github.com/rsingla92" target="_blank" rel="me noopener">GitHub</a></li>
@@ -395,7 +411,8 @@
                     <h2>Research</h2>
                     <p>My research spans AI-enabled ultrasound diagnostics for nephrology and transplantation, computer vision and physics in medical imaging, augmented reality and image-guided surgery, and AI in medical education. I founded UBC Artificial Intelligence in Medicine, led one of Canada's earliest hands-on AI workshops for medical students, and have co-authored multiple national studies on how to teach AI effectively to future physicians.</p>
 
-                    <h3>AI-Enabled Ultrasound Diagnostics</h3>
+                    <div class="pub-section">
+                    <h3 class="pub-toggle">AI-Enabled Ultrasound Diagnostics</h3>
                     <ul class="pub-list">
                         <li><span class="pub-year">2023</span> <span class="pub-author">Singla, R.</span>, Ringstrom, C., Hu, G., et al. <a href="https://link.springer.com/chapter/10.1007/978-3-031-44521-7_15" target="_blank" rel="noopener">The open kidney ultrasound data set.</a> <span class="pub-venue">ASMUS Workshop, Springer.</span> [<a href="https://github.com/rsingla92/kidneyUS" target="_blank" rel="noopener">dataset</a>]</li>
                         <li><span class="pub-year">2023</span> <span class="pub-author">Singla, R.</span>, Ringstrom, C., Hu, R., et al. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10248852/" target="_blank" rel="noopener">Automatic measurement of kidney dimensions in 2D ultrasonography is comparable to expert sonographers.</a> <span class="pub-venue">Journal of Medical Imaging, 10(3).</span></li>
@@ -403,23 +420,29 @@
                         <li><span class="pub-year">2022</span> <span class="pub-author">Singla, R.</span>, Kadatz, M., Rohling, R., Nguan, C. <a href="https://www.kidneymedicinejournal.org/article/S2590-0595(22)00077-2/fulltext" target="_blank" rel="noopener">Kidney ultrasound for the nephrologist: a review.</a> <span class="pub-venue">Kidney Medicine.</span></li>
                     </ul>
 
-                    <h3>Computer Vision and Physics in Medical Imaging</h3>
+                    </div>
+                    <div class="pub-section">
+                    <h3 class="pub-toggle">Computer Vision and Physics in Medical Imaging</h3>
                     <ul class="pub-list">
                         <li><span class="pub-year">2022</span> <span class="pub-author">Singla, R.</span>, Ringstrom, C., Hu, R., et al. <a href="https://proceedings.mlr.press/v172/singla22a.html" target="_blank" rel="noopener">Speckle and shadows: ultrasound-specific physics-based data augmentation for kidney segmentation.</a> <span class="pub-venue">Medical Imaging with Deep Learning (MIDL), PMLR.</span></li>
-                        <li><span class="pub-year">2022</span> Yang, W., <span class="pub-author">Singla, R.</span>, Maheshwari, O., et al. Alcohol use disorder: neurobiology and therapeutics. <span class="pub-venue">Biomedicines.</span></li>
+                        <li><span class="pub-year">2022</span> Yang, W., <span class="pub-author">Singla, R.</span>, Maheshwari, O., et al. <a href="https://www.mdpi.com/2227-9059/10/5/1192" target="_blank" rel="noopener">Alcohol use disorder: neurobiology and therapeutics.</a> <span class="pub-venue">Biomedicines.</span></li>
                         <li><span class="pub-year">2019</span> Hu, R., <span class="pub-author">Singla, R.</span>, Deeba, F., Rohling, R. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0301562919301383" target="_blank" rel="noopener">Acoustic shadow detection: study and statistics of B-mode and radiofrequency data.</a> <span class="pub-venue">Ultrasound in Medicine &amp; Biology, 45(8).</span></li>
                         <li><span class="pub-year">2019</span> Hu, R., <span class="pub-author">Singla, R.</span>, Yan, R., et al. <a href="https://ieeexplore.ieee.org/document/8856387" target="_blank" rel="noopener">Automated placenta segmentation with a CNN weighted by acoustic shadow detection.</a> <span class="pub-venue">IEEE EMBC.</span></li>
                         <li><span class="pub-year">2019</span> Harriman, D.I., <span class="pub-author">Singla, R.</span>, Nguan, C. The resident report card: a tool for operative feedback and evaluation of technical skills. <span class="pub-venue">Journal of Surgical Research, 239.</span></li>
                     </ul>
 
-                    <h3>Augmented Reality and Image-Guided Surgery</h3>
+                    </div>
+                    <div class="pub-section">
+                    <h3 class="pub-toggle">Augmented Reality and Image-Guided Surgery</h3>
                     <ul class="pub-list">
                         <li><span class="pub-year">2020</span> <span class="pub-author">Singla, R.</span>, Burlinson, C., et al. <a href="https://innovations.bmj.com/content/7/1/bmjinnov-2019-000404" target="_blank" rel="noopener">Interdisciplinary development of a novel needle guide for ultrasound-guided lumbar epidural placement.</a> <span class="pub-venue">BMJ Innovations.</span></li>
                         <li><span class="pub-year">2018</span> Edgcumbe, P., <span class="pub-author">Singla, R.</span>, Pratt, P., et al. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5812432/" target="_blank" rel="noopener">Follow the light: projector-based augmented reality intracorporeal system for laparoscopic surgery.</a> <span class="pub-venue">Journal of Medical Imaging, 5(2).</span></li>
                         <li><span class="pub-year">2017</span> <span class="pub-author">Singla, R.</span>, Edgcumbe, P., Pratt, P., et al. <a href="https://pubmed.ncbi.nlm.nih.gov/29184666/" target="_blank" rel="noopener">Intra-operative ultrasound-based augmented reality guidance for laparoscopic surgery.</a> <span class="pub-venue">Healthcare Technology Letters, 4(5).</span></li>
                     </ul>
 
-                    <h3>AI in Medical Education</h3>
+                    </div>
+                    <div class="pub-section">
+                    <h3 class="pub-toggle">AI in Medical Education</h3>
                     <ul class="pub-list">
                         <li><span class="pub-year">2024</span> <span class="pub-author">Singla, R.</span>, Pupic, N., et al. <a href="https://www.nature.com/articles/s41746-024-01307-1" target="_blank" rel="noopener">Developing a Canadian AI medical curriculum using a Delphi study.</a> <span class="pub-venue">npj Digital Medicine, 7(1):323.</span></li>
                         <li><span class="pub-year">2023</span> Pupic, N., Ghaffari-Zadeh, A., Hu, R., <span class="pub-author">Singla, R.</span>, et al. <a href="https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000255" target="_blank" rel="noopener">An evidence-based approach to AI education for medical students: a systematic review.</a> <span class="pub-venue">PLOS Digital Health, 2(11).</span></li>
@@ -429,13 +452,16 @@
                         <li><span class="pub-year">2020</span> Fan, K., Hu, R., <span class="pub-author">Singla, R.</span> Introductory machine learning for medical students: a pilot. <span class="pub-venue">Medical Education.</span></li>
                     </ul>
 
-                    <h3>Translational Clinical Research</h3>
+                    </div>
+                    <div class="pub-section">
+                    <h3 class="pub-toggle">Translational Clinical Research</h3>
                     <ul class="pub-list">
                         <li><span class="pub-year">2022</span> Dawidek, M. T., <span class="pub-author">Singla, R.</span>, et al. <a href="https://pubmed.ncbi.nlm.nih.gov/34672935/" target="_blank" rel="noopener">Clinical validation of an audio-based uroflowmetry application in adult males.</a> <span class="pub-venue">Canadian Urological Association Journal, 16(3).</span></li>
                         <li><span class="pub-year">2021</span> Burden, E., Khehra, K., <span class="pub-author">Singla, R.</span>, et al. <a href="https://innovations.bmj.com/content/7/4/bmjinnov-2020-000580" target="_blank" rel="noopener">PatientLink: a patient-centred status dashboard for the perioperative process.</a> <span class="pub-venue">BMJ Innovations, 7(4).</span></li>
                     </ul>
 
-                    <p style="margin-top: var(--space-lg); font-size: 0.9rem; color: var(--text-muted);">For a complete list, see my <a href="cv.pdf" target="_blank" rel="noopener">full CV</a> or <a href="https://scholar.google.com/citations?user=YslDOD8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+                    </div>
+                    <p style="margin-top: var(--space-lg); font-size: 0.9rem; color: var(--text-muted);">For a complete list, see my <a href="https://scholar.google.com/citations?user=YslDOD8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
                 </section>
 
                 <section id="education">
@@ -463,14 +489,21 @@
 
                 <section id="connect">
                     <h2>Connect</h2>
-                    <p>I am always open to new collaborations, whether in research, industry, or consulting. If you are working on something at the intersection of AI, medical imaging, healthcare technology, or clinical medicine, I would like to hear about it. I also provide mentorship to trainees on select occasion. Reach out at rohit [at] rsingla [dot] ca.</p>
+                    <p>I am always open to new collaborations, whether in research, industry, or consulting. If you are working on something at the intersection of AI, medical imaging, healthcare technology, or clinical medicine, I would like to hear about it. I also provide mentorship to trainees on select occasion.</p>
+                    <p style="font-size: 0.95rem;">
+                        <strong>Email:</strong> rohit [at] rsingla [dot] ca &nbsp; · &nbsp;
+                        <strong>Scholar:</strong> <a href="https://scholar.google.com/citations?user=YslDOD8AAAAJ" target="_blank" rel="me noopener">Google Scholar</a> &nbsp; · &nbsp;
+                        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/rsingla92/" target="_blank" rel="me noopener">rsingla92</a> &nbsp; · &nbsp;
+                        <strong>GitHub:</strong> <a href="https://github.com/rsingla92" target="_blank" rel="me noopener">rsingla92</a>
+                    </p>
                 </section>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Rohit Singla. All rights reserved.</p>
+        <p>&copy; 2026 Rohit Singla</p>
+        <p style="margin-top: var(--space-sm);">rohit [at] rsingla [dot] ca &nbsp; · &nbsp; <a href="https://scholar.google.com/citations?user=YslDOD8AAAAJ" target="_blank" rel="me noopener" style="color: var(--header-text); opacity: 0.7;">Scholar</a> &nbsp; · &nbsp; <a href="https://www.linkedin.com/in/rsingla92/" target="_blank" rel="me noopener" style="color: var(--header-text); opacity: 0.7;">LinkedIn</a> &nbsp; · &nbsp; <a href="https://github.com/rsingla92" target="_blank" rel="me noopener" style="color: var(--header-text); opacity: 0.7;">GitHub</a></p>
     </footer>
 
     <script>
@@ -530,6 +563,13 @@
                     var nav = document.querySelector('nav');
                     if (nav) nav.classList.remove('open');
                 }
+            });
+        });
+
+        // Collapsible publication sections
+        document.querySelectorAll('.pub-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function() {
+                toggle.parentElement.classList.toggle('collapsed');
             });
         });
 
