@@ -290,38 +290,13 @@
             .container { padding: var(--space-2xl) var(--space-md); }
             h1 { font-size: 1.7rem; }
             h2 { font-size: 1.35rem; }
-            .highlights { grid-template-columns: repeat(2, 1fr) !important; }
-            .highlights .highlight-item { grid-column: span 1 !important; }
-            .highlights .highlight-item:last-child:nth-child(odd) { grid-column: 1 / -1 !important; }
         }
         @media (max-width: 375px) {
             .profile-photo { width: 150px; }
             .container { padding: var(--space-xl) var(--space-md); }
-            .highlight-num { font-size: 1.5rem; }
-            .highlight-label { font-size: 0.75rem; }
             .sidebar-name { font-size: 1.4rem; }
         }
 
-        /* ===== HIGHLIGHTS BAR ===== */
-        .highlights {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: var(--space-md);
-            margin-top: var(--space-xl);
-            margin-bottom: var(--space-2xl);
-            padding: var(--space-lg);
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-        }
-        .highlights .highlight-item:nth-child(-n+3) { grid-column: span 2; }
-        .highlights .highlight-item:nth-child(4) { grid-column: 2 / span 2; }
-        .highlights .highlight-item:nth-child(5) { grid-column: 4 / span 2; }
-        .highlight-item { text-align: center; transition: transform var(--transition); }
-        .highlight-item:hover { transform: translateY(-2px); }
-        .highlight-num { font-family: var(--font-display); font-size: 1.8rem; line-height: 1.2; color: var(--accent); transition: color var(--transition); }
-        .highlight-item:hover .highlight-num { color: var(--accent-hover); }
-        .highlight-label { font-size: 0.82rem; color: var(--text-muted); line-height: 1.3; }
 
         /* ===== PRINT ===== */
         @media print {
@@ -335,8 +310,6 @@
             .profile-grid { grid-template-columns: 180px 1fr; gap: 24pt; }
             .sidebar { position: static; }
             .profile-photo { width: 180px; break-inside: avoid; }
-            .highlights { break-inside: avoid; border-color: #ccc; background: #f8f8f8; }
-            .highlight-num { color: #000; }
             .content section { break-inside: avoid-page; }
             .pub-list li { border-color: #ddd; }
             .press-list li { border-color: #ddd; }
@@ -400,14 +373,6 @@
                     <p>The dual perspective of engineering and patient care shapes everything I do, from how I design studies to what I choose to build. My doctoral work developed machine learning methods for non-invasive ultrasound diagnostics in kidney disease. That same drive to bridge disciplines led me to co-lead the development of <a href="https://www.nature.com/articles/s41746-024-01307-1" target="_blank" rel="noopener">Canada's first AI medical curriculum</a> and build hands-on AI training programs for physicians.</p>
                     <p>Outside of academia, I advise biotech and health-tech companies on strategy and due diligence, and previously co-founded a startup in epilepsy drug development.</p>
                     <p>I have received over $465,000 in <a href="https://www.med.ubc.ca/news/ubc-md-phd-student-dr-rohit-singla-honoured-with-2023-canadian-medical-hall-of-fame-award/" target="_blank" rel="noopener">awards and scholarships</a>, including the CIHR Canadian Postdoctoral Research Award, Canada's top-ranked <a href="https://bme.ubc.ca/sbme-students-rohit-singla-and-prashant-pandey-receive-2020-vanier-canada-graduate-scholarships/" target="_blank" rel="noopener">Vanier Scholarship</a>, and the <a href="https://www.cdnmedhall.ca/2023cmhfaward" target="_blank" rel="noopener">Canadian Medical Hall of Fame Award</a>. As co-investigator, I have contributed to over $1.2M in grant funding from CIHR. I review for over 30 journals including NeurIPS, MICCAI, and IEEE Transactions on Medical Imaging.</p>
-
-                    <div class="highlights">
-                        <div class="highlight-item"><div class="highlight-num">$1.2M+</div><div class="highlight-label">Grant funding (co-I)</div></div>
-                        <div class="highlight-item"><div class="highlight-num">$465K+</div><div class="highlight-label">Awards &amp; scholarships</div></div>
-                        <div class="highlight-item"><div class="highlight-num">23</div><div class="highlight-label">Journal publications</div></div>
-                        <div class="highlight-item"><div class="highlight-num">50+</div><div class="highlight-label">Conference presentations</div></div>
-                        <div class="highlight-item"><div class="highlight-num">15+</div><div class="highlight-label">Students mentored</div></div>
-                    </div>
                 </section>
 
                 <section id="experience">
@@ -425,7 +390,7 @@
                         <ul>
                             <li><strong>Open Kidney Ultrasound Dataset</strong> — Conceived and delivered the first high-quality benchmark kidney ultrasound dataset available worldwide, with 500+ expert-annotated images and benchmark deep learning models. Adopted by 450+ institutions globally and the foundation for multiple peer-reviewed publications demonstrating novel techniques in renal imaging AI.</li>
                             <li><strong>Canada's first AI medical curriculum</strong> — Led a national Delphi study to establish expert-consensus competencies for AI in Canadian medical education, published in <em>npj Digital Medicine</em>. This built on hands-on workshops reaching 300 medical students and a nationwide survey of 2,000+ healthcare trainees — the first broad Canadian trainee perspective on AI in medicine.</li>
-                            <li><strong>Mentorship and training</strong> — Directly supervised 4 undergraduate co-op students and 11 medical students in research, producing 2 Best Paper Awards, multiple conference presentations, and trainees who advanced to graduate programs at UBC, ETH Zurich, and EPFL.</li>
+                            <li><strong>Mentorship and training</strong> — Directly supervised 4 undergraduate engineering co-op students and 11 medical students in research, producing 2 Best Paper Awards, multiple conference presentations, and trainees who have gone on to graduate programs at UBC, ETH Zurich, and EPFL.</li>
                         </ul>
                     </div>
 
