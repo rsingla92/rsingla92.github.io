@@ -58,7 +58,7 @@
 
 ## Layout
 - **Approach:** Grid-disciplined with asymmetric profile section
-- **Grid:** Sidebar (280px) + fluid content column, single column on mobile (<768px)
+- **Grid:** Sidebar (280px) + fluid content column, single column on mobile (<900px)
 - **Max content width:** 960px
 - **Border radius:** sm:4px, md:8px, lg:12px
 
